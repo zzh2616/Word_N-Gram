@@ -43,7 +43,7 @@ public class MarkovWord implements IMarkovModel {
 			String next = follows.get(index);
 			sb.append(next);
 			sb.append(" ");
-      key.shiftAdd(next);
+      key = key.shiftAdd(next);
 		}
 
 		return sb.toString().trim();
@@ -52,7 +52,7 @@ public class MarkovWord implements IMarkovModel {
   // method that finds the position of a certain word "target" in a string array "words"; if no word found, method returns -1
   public int indexOf(String[] words, WordGram target, int start){
     int ans = -1;
-    for (int i = start; i < words.length - target.length() - 1; i++) {
+    for (int i = start; i <= words.length - target.length(); i++) {
       boolean flag = true;
       for (int k = 0; k < target.length() ; k++) {
         if (!words[i+k].equals(target.wordAt(k))) {

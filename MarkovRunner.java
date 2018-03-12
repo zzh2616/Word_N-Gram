@@ -7,6 +7,7 @@
  */
 
 import edu.duke.*;
+import java.io.*;
 
 public class MarkovRunner {
     public void runModel(IMarkovModel markov, String text, int size){
@@ -31,11 +32,25 @@ public class MarkovRunner {
     public void runMarkov() {
         FileResource fr = new FileResource();
         String st = fr.asString();
+        // String st = "this is a test yes this is really a test yes a test this is wow";
         st = st.replace('\n', ' ');
         // MarkovWordOne markovWord = new MarkovWordOne();
         // MarkovWordTwo markovWord = new MarkovWordTwo();
-        MarkovWord markovWord = new MarkovWord(3);
-        runModel(markovWord, st, 120, 643);
+        // MarkovWord markovWord = new MarkovWord(3);
+        EfficientMarkovWord emarkovWord = new EfficientMarkovWord(2);
+
+        // long t1 = System.nanoTime();
+        // runModel(emarkovWord, st, 100, 42);
+        // runModel(emarkovWord, st, 100, 42);
+        // runModel(emarkovWord, st, 100, 42);
+        // long t2 = System.nanoTime();
+        // System.out.println("time used by Efficient Markov Model: " + (t2-t1) + "\n");
+
+        runModel(emarkovWord, st, 100, 65);
+        // runModel(markovWord, st, 100, 42);
+        // runModel(markovWord, st, 100, 42);
+        // long t3 = System.nanoTime();
+        // System.out.println("time used by Markov Model: " + (t3-t2) + "\n");
     }
 
     private void printOut(String s){

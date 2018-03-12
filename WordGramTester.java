@@ -10,7 +10,7 @@ public class WordGramTester {
 			System.out.println(index+"\t"+wg.length()+"\t"+wg);
 		}
 	}
-	
+
 	public void testWordGramEquals(){
 		String source = "this is a test this is a test this is a test of words";
 		String[] words = source.split("\\s+");
@@ -29,5 +29,5 @@ public class WordGramTester {
 			}
 		}
 	}
-	
+
 }

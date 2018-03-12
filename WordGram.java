@@ -49,12 +49,18 @@ public class WordGram {
         for (int i = 0; i< myWords.length-1; i++) {
           newWords[i] = myWords[i+1];
         }
-        newWords[myWords.length-1] = myWords[myWords.length-1];
+        newWords[myWords.length-1] = word;
         WordGram out = new WordGram(newWords, 0, myWords.length);
         // shift all words one towards 0 and add word at the end.
         // you lose the first word
         // TODO: Complete this method
         return out;
+    }
+
+    // This method generates hash code using the hash code of the string with toString method
+    public int hashCode(){
+      String str = toString();
+      return str.hashCode();
     }
 
 }
